@@ -49,3 +49,6 @@ _data
 
 # PostgreSQL
 logfile
+
+# testing
+cn_client/tests.cfg
