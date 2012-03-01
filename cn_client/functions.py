@@ -8,8 +8,6 @@ This module provides the basic API interface for Consumer Notebook. The
 abstraction of this is super-light in order to show how to use the API.
 """
 
-import json
-
 import requests
 
 def get_products(api_key, username, password, page=1,from_date=None, to_date=None, base_url="https://consumernotebook.com/api/v1/"):
