@@ -56,11 +56,9 @@ class TestFunctions(unittest.TestCase):
         response = get_grids(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
         self._lprint(response)
         self.assertEquals(response.status_code, 200)
-
         
-        # We should just have one page
-        grids = json.loads(response.content)
-
+        response = get_grids(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL, depth=1)
+        self._lprint(response)
 
     def _lprint(self, response):
         """ Used to save html responses to help debug"""
