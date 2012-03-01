@@ -10,7 +10,7 @@ import ConfigParser
 import json
 import unittest
 
-from functions import get_products, get_grids, get_lists
+from functions import get_products, get_grids, get_lists, get_users
 
 config = ConfigParser.ConfigParser()
 config.read('tests.cfg')
@@ -19,6 +19,12 @@ API_KEY = config.get('Params', 'api_key')
 USERNAME = config.get('Params', 'username')
 PASSWORD = config.get('Params', 'password')
 BASE_URL = config.get("Params", 'base_url')
+
+def _lprint(response):
+    """ Used to save html responses to help debug"""
+    f = open('results.html','w')
+    f.write(response.content)
+    f.close()
 
 class TestFunctions(unittest.TestCase):
     
@@ -54,17 +60,18 @@ class TestFunctions(unittest.TestCase):
 
         # Let's get a list of products
         response = get_grids(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
-        self._lprint(response)
         self.assertEquals(response.status_code, 200)
         
         response = get_grids(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL, depth=1)
-        self._lprint(response)
 
-    def _lprint(self, response):
-        """ Used to save html responses to help debug"""
-        f = open('results.html','w')
-        f.write(response.content)
-        f.close()
+    def test_users(self):
+
+        response = get_users(API_KEY, USERNAME, PASSWORD, target_username="audreyr", base_url=BASE_URL)        
+        _lprint(response)        
+        
+        self.assertEquals(response.status_code, 200)
+
+
 
 if __name__ == "__main__":
     unittest.main()

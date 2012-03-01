@@ -68,10 +68,7 @@ def get_users(api_key, username, password, target_username=None, page=1,base_url
     data = {}
     data['api_key'] = api_key       
     data['page'] = page
-    data['from_date'] = from_date
-    data['to_date'] = to_date
-    data['depth'] = depth 
     if target_username:
         data['username'] = target_username
-    url = base_url + 'grids.json'    
+    url = base_url + 'users.json'    
     return requests.get(url, auth=(username, password), data=data)
