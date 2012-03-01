@@ -10,7 +10,7 @@ import ConfigParser
 import json
 import unittest
 
-from functions import get_products
+from functions import get_products, get_grids, get_lists
 
 config = ConfigParser.ConfigParser()
 config.read('tests.cfg')
@@ -20,7 +20,7 @@ USERNAME = config.get('Params', 'username')
 PASSWORD = config.get('Params', 'password')
 BASE_URL = config.get("Params", 'base_url')
 
-class TestProducts(unittest.TestCase):
+class TestFunctions(unittest.TestCase):
     
     def test_authentication(self):
         
@@ -45,6 +45,28 @@ class TestProducts(unittest.TestCase):
         # We should just have one page
         products = json.loads(response.content)
         self.assertEquals(len(products), 20)
+
+    def test_lots(self):
+        response = get_lists(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
+        self.assertEquals(response.status_code, 200)
+
+    def test_grids(self):
+
+        # Let's get a list of products
+        response = get_grids(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
+        self._lprint(response)
+        self.assertEquals(response.status_code, 200)
+
+        
+        # We should just have one page
+        grids = json.loads(response.content)
+
+
+    def _lprint(self, response):
+        """ Used to save html responses to help debug"""
+        f = open('results.html','w')
+        f.write(response.content)
+        f.close()
 
 if __name__ == "__main__":
     unittest.main()

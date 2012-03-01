@@ -32,6 +32,7 @@ def get_lists(api_key, username, password, page=1,from_date=None, to_date=None, 
         Consumer Notebook list data.
     """
     data = {}
+    data['api_key'] = api_key       
     data['page'] = page
     data['from_date'] = from_date
     data['to_date'] = to_date
@@ -45,6 +46,7 @@ def get_grids(api_key, username, password, page=1,from_date=None, to_date=None, 
         Consumer Notebook grid data.
     """
     data = {}
+    data['api_key'] = api_key       
     data['page'] = page
     data['from_date'] = from_date
     data['to_date'] = to_date
