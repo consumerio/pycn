@@ -12,34 +12,32 @@ import json
 
 import requests
 
-CONSUMERNOTEBOOK_URL = "https://consumernotebook.com/api/v1/"
-
-def get_products(api_key, username, password, page=1,from_date=None, to_date=None):
+def get_products(api_key, username, password, page=1,from_date=None, to_date=None, base_url="https://consumernotebook.com/api/v1/"):
     """ Returns a ``requests`` response object"""
     data = {}
     data['api_key'] = api_key    
     data['page'] = page
     data['from_date'] = from_date
     data['to_date'] = to_date
-    url = CONSUMERNOTEBOOK_URL + 'products/'
+    url = base_url + 'products/'
     return requests.get(url, auth=(username, password), data=data)
 
-def get_lists(api_key, username, password, page=1,from_date=None, to_date=None, depth=0):
+def get_lists(api_key, username, password, page=1,from_date=None, to_date=None, depth=0, base_url="https://consumernotebook.com/api/v1/"):
     """ Returns a ``requests`` response object"""
     data = {}
     data['page'] = page
     data['from_date'] = from_date
     data['to_date'] = to_date
     data['depth'] = depth    
-    url = CONSUMERNOTEBOOK_URL + 'lists/'    
+    url = base_url + 'lists/'    
     return requests.get(url, auth=(username, password), data=data)
 
-def get_grids(api_key, username, password, page=1,from_date=None, to_date=None, depth=0):
+def get_grids(api_key, username, password, page=1,from_date=None, to_date=None, depth=0, base_url="https://consumernotebook.com/api/v1/"):
     """ Returns a ``requests`` response object"""
     data = {}
     data['page'] = page
     data['from_date'] = from_date
     data['to_date'] = to_date
     data['depth'] = depth    
-    url = CONSUMERNOTEBOOK_URL + 'grids/'    
+    url = base_url + 'grids/'    
     return requests.get(url, auth=(username, password), data=data)
