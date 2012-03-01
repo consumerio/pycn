@@ -25,18 +25,26 @@ class TestProducts(unittest.TestCase):
     def test_authentication(self):
         
         # Fail on bad API key. Should return a 401
-        products = get_products("I am crazy", USERNAME, PASSWORD, base_url=BASE_URL)
-        self.assertEquals(products.status_code, 401)
+        response = get_products("I am crazy", USERNAME, PASSWORD, base_url=BASE_URL)
+        self.assertEquals(response.status_code, 401)
 
         # Fail on bad Username/Password combo. Returns a 404 but the API needs to change that
-        products = get_products(API_KEY, USERNAME, "My password is passw0rd", base_url=BASE_URL)
-        self.assertEquals(products.status_code, 404)
+        response = get_products(API_KEY, USERNAME, "My password is passw0rd", base_url=BASE_URL)
+        self.assertEquals(response.status_code, 404)
 
-        
         # Successful authentication
-        products = get_products(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
-        self.assertEquals(products.status_code, 200)
-
+        response = get_products(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
+        self.assertEquals(response.status_code, 200)
+        
+    def test_products(self):
+        
+        # Let's get a list of products
+        response = get_products(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
+        self.assertEquals(response.status_code, 200)
+        
+        # We should just have one page
+        products = json.loads(response.content)
+        self.assertEquals(len(products), 20)
 
 if __name__ == "__main__":
     unittest.main()
