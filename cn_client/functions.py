@@ -23,7 +23,7 @@ def get_products(api_key, username, password, page=1,from_date=None, to_date=Non
     data['page'] = page
     data['from_date'] = from_date
     data['to_date'] = to_date
-    url = base_url + 'products/'
+    url = base_url + 'products.json'
     return requests.get(url, auth=(username, password), data=data)
 
 def get_lists(api_key, username, password, page=1,from_date=None, to_date=None, depth=0, base_url="https://consumernotebook.com/api/v1/"):
@@ -37,7 +37,7 @@ def get_lists(api_key, username, password, page=1,from_date=None, to_date=None, 
     data['from_date'] = from_date
     data['to_date'] = to_date
     data['depth'] = depth    
-    url = base_url + 'lists/'    
+    url = base_url + 'lists.json'    
     return requests.get(url, auth=(username, password), data=data)
 
 def get_grids(api_key, username, password, page=1,from_date=None, to_date=None, depth=0, base_url="https://consumernotebook.com/api/v1/"):
@@ -51,5 +51,5 @@ def get_grids(api_key, username, password, page=1,from_date=None, to_date=None, 
     data['from_date'] = from_date
     data['to_date'] = to_date
     data['depth'] = depth    
-    url = base_url + 'grids/'    
+    url = base_url + 'grids.json'    
     return requests.get(url, auth=(username, password), data=data)
