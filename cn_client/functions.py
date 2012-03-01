@@ -60,15 +60,30 @@ def get_grids(api_key, username, password, target_username=None, page=1,from_dat
     url = base_url + 'grids.json'    
     return requests.get(url, auth=(username, password), data=data)
 
-def get_users(api_key, username, password, target_username=None, page=1,base_url="https://consumernotebook.com/api/v1/"):
+def get_users(api_key, username, password, target_username=None, base_url="https://consumernotebook.com/api/v1/"):
     """ 
         Returns a requests response object containing a list of serialized
         Consumer Notebook grid data.
     """
     data = {}
     data['api_key'] = api_key       
-    data['page'] = page
     if target_username:
         data['username'] = target_username
     url = base_url + 'users.json'    
     return requests.get(url, auth=(username, password), data=data)
+
+def post_follow(api_key, username, password, target_username, base_url="https://consumernotebook.com/api/v1/"):
+
+    data = {}
+    data['api_key'] = api_key       
+    data['username'] = target_username
+    url = base_url + 'users/follow/'    
+    return requests.post(url, auth=(username, password), data=data)    
+
+def post_unfollow(api_key, username, password, target_username, base_url="https://consumernotebook.com/api/v1/"):
+
+    data = {}
+    data['api_key'] = api_key       
+    data['username'] = target_username
+    url = base_url + 'users/unfollow/'    
+    return requests.post(url, auth=(username, password), data=data)    

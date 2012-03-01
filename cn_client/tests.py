@@ -11,6 +11,7 @@ import json
 import unittest
 
 from functions import get_products, get_grids, get_lists, get_users
+from functions import post_follow, post_unfollow
 
 config = ConfigParser.ConfigParser()
 config.read('tests.cfg')
@@ -67,9 +68,23 @@ class TestFunctions(unittest.TestCase):
     def test_users(self):
 
         response = get_users(API_KEY, USERNAME, PASSWORD, target_username="audreyr", base_url=BASE_URL)        
-        _lprint(response)        
-        
         self.assertEquals(response.status_code, 200)
+
+    def test_unfollow(self):
+        response = post_unfollow(API_KEY, USERNAME, PASSWORD, target_username="audreyr", base_url=BASE_URL)        
+        self.assertEquals(response.status_code, 202)
+        
+    def test_follow(self):
+        # this line makes sure we are not following audreyr
+        response = post_unfollow(API_KEY, USERNAME, PASSWORD, target_username="audreyr", base_url=BASE_URL)                
+        
+        # Follow audreyr
+        response = post_follow(API_KEY, USERNAME, PASSWORD, target_username="audreyr", base_url=BASE_URL)        
+        self.assertEquals(response.status_code, 201)
+
+        # Follow audreyr and get a 400 because we are already doing so
+        response = post_follow(API_KEY, USERNAME, PASSWORD, target_username="audreyr", base_url=BASE_URL)        
+        self.assertEquals(response.status_code, 400)
 
 
 
