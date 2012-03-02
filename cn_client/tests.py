@@ -32,7 +32,7 @@ class TestFunctions(unittest.TestCase):
     def test_authentication(self):
         
         # Fail on bad API key. Should return a 401
-        response = get_products("I am crazy", USERNAME, PASSWORD, base_url=BASE_URL)
+        response = get_products("I am crazy", USERNAME, PASSWORD, base_url=BASE_URL)        
         self.assertEquals(response.status_code, 401)
 
         # Fail on bad Username/Password combo. Returns a 404 but the API needs to change that
@@ -40,7 +40,7 @@ class TestFunctions(unittest.TestCase):
         self.assertEquals(response.status_code, 404)
 
         # Successful authentication
-        response = get_products(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
+        response = get_products(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)        
         self.assertEquals(response.status_code, 200)
         
     def test_products(self):
