@@ -21,7 +21,7 @@ USERNAME = config.get('Params', 'username')
 PASSWORD = config.get('Params', 'password')
 BASE_URL = config.get("Params", 'base_url')
 
-def _lprint(response):
+def lprint(response):
     """ Used to save html responses to help debug"""
     f = open('results.html','w')
     f.write(response.content)
@@ -31,18 +31,22 @@ class TestFunctions(unittest.TestCase):
     
     def test_authentication(self):
         
+        
         # Fail on bad API key. Should return a 401
-        response = get_products("I am crazy", USERNAME, PASSWORD, base_url=BASE_URL)        
+        response = get_lists("I am crazy", USERNAME, PASSWORD, base_url=BASE_URL)        
         self.assertEquals(response.status_code, 401)
 
-        # Fail on bad Username/Password combo. Returns a 404 but the API needs to change that
-        response = get_products(API_KEY, USERNAME, "My password is passw0rd", base_url=BASE_URL)
-        self.assertEquals(response.status_code, 404)
+        # Fail on bad Username/Password combo. Returns a 401 but the API needs to change that
+        response = get_lists(API_KEY, USERNAME, "My password is passw0rd", base_url=BASE_URL)
+        self.assertEquals(response.status_code, 401)
 
         # Successful authentication
-        response = get_products(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)        
+        response = get_lists(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
+        lprint(response)        
         self.assertEquals(response.status_code, 200)
         
+        
+    """
     def test_products(self):
         
         # Let's get a list of products
@@ -85,7 +89,7 @@ class TestFunctions(unittest.TestCase):
         # Follow audreyr and get a 400 because we are already doing so
         response = post_follow(API_KEY, USERNAME, PASSWORD, target_username="audreyr", base_url=BASE_URL)        
         self.assertEquals(response.status_code, 400)
-
+    """
 
 
 if __name__ == "__main__":

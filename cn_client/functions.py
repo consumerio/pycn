@@ -33,6 +33,7 @@ def get_lists(api_key, username, password, target_username=None, page=1,from_dat
         Returns a requests response object containing a list of serialized
         Consumer Notebook list data.
     """
+    
     data = {}
     data['api_key'] = api_key       
     data['page'] = page
@@ -41,8 +42,8 @@ def get_lists(api_key, username, password, target_username=None, page=1,from_dat
     data['depth'] = depth    
     if target_username:
         data['username'] = target_username    
-    url = base_url + 'lists.json'    
-    return requests.get(url, auth=(username, password), data=data)
+    url = base_url + 'lists.json'        
+    return requests.get(url, auth=(username, password), params=data)
 
 def get_grids(api_key, username, password, target_username=None, page=1,from_date=None, to_date=None, depth=0, base_url="https://consumernotebook.com/api/v1/"):
     """ 
@@ -58,7 +59,7 @@ def get_grids(api_key, username, password, target_username=None, page=1,from_dat
     if target_username:
         data['username'] = target_username    
     url = base_url + 'grids.json'    
-    return requests.get(url, auth=(username, password), data=data)
+    return requests.get(url, auth=(username, password), params=data)
 
 def get_users(api_key, username, password, target_username=None, base_url="https://consumernotebook.com/api/v1/"):
     """ 
@@ -70,7 +71,7 @@ def get_users(api_key, username, password, target_username=None, base_url="https
     if target_username:
         data['username'] = target_username
     url = base_url + 'users.json'    
-    return requests.get(url, auth=(username, password), data=data)
+    return requests.get(url, auth=(username, password), params=data)
 
 def post_follow(api_key, username, password, target_username, base_url="https://consumernotebook.com/api/v1/"):
 
