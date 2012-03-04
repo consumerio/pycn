@@ -10,8 +10,7 @@ import ConfigParser
 import json
 import unittest
 
-from functions import get_products, get_grids, get_lists, get_users
-from functions import post_follow, post_unfollow
+from functions import get_products, get_lists, get_users
 
 config = ConfigParser.ConfigParser()
 config.read('tests.cfg')
