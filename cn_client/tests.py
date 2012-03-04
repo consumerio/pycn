@@ -17,8 +17,6 @@ config = ConfigParser.ConfigParser()
 config.read('tests.cfg')
 
 API_KEY = config.get('Params', 'api_key')
-USERNAME = config.get('Params', 'username')
-PASSWORD = config.get('Params', 'password')
 BASE_URL = config.get("Params", 'base_url')
 
 def lprint(response):
@@ -28,35 +26,20 @@ def lprint(response):
     f.close()
 
 class TestFunctions(unittest.TestCase):
-    
-    def test_authentication(self):
         
         
-        # Fail on bad API key. Should return a 401
-        response = get_lists("I am crazy", USERNAME, PASSWORD, base_url=BASE_URL)        
-        self.assertEquals(response.status_code, 401)
 
-        # Fail on bad Username/Password combo. Returns a 401 but the API needs to change that
-        response = get_lists(API_KEY, USERNAME, "My password is passw0rd", base_url=BASE_URL)
-        self.assertEquals(response.status_code, 401)
-
-        # Successful authentication
-        response = get_lists(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
-        lprint(response)        
-        self.assertEquals(response.status_code, 200)
-        
-        
-    """
-    def test_products(self):
+    def test_https(self):
         
         # Let's get a list of products
-        response = get_products(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
+        response = get_products(API_KEY, base_url="http://consumernotebook.com/api/v1/")
         self.assertEquals(response.status_code, 200)
         
         # We should just have one page
-        products = json.loads(response.content)
-        self.assertEquals(len(products), 20)
+        response = get_products(API_KEY)
+        self.assertEquals(response.status_code, 200)
 
+    """
     def test_lots(self):
         response = get_lists(API_KEY, USERNAME, PASSWORD, base_url=BASE_URL)
         self.assertEquals(response.status_code, 200)

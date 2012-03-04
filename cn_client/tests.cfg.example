@@ -1,5 +1,3 @@
 [Params]
 api_key=MY_API_KEY
-username=MY_USERNAME
-password=MY_PASSWORD
 base_url=FORTHCOMING_SANDBOX_URL
