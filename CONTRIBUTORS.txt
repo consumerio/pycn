@@ -1,1 +1,2 @@
+Audrey Roy <audreyr@consumernotebook.com>
 Daniel Greenfeld <pydanny@gmail.com>
