@@ -26,3 +26,5 @@ Systemwide
 At the command line, do::
 
     sudo pip install pycn
+
+Now that you have pycn installed and ready to go, you'll want to take the time to complete our :ref:`tutorial`.
