@@ -27,6 +27,9 @@ setup(
     license='MIT',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=['requests==0.10.6'],
+    install_requires=[
+        'requests==0.10.6',
+        'httplib2==0.7.4',
+    ],
     zip_safe=False,
 )

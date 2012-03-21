@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# python-cn-clieht documentation build configuration file, created by
+# pycn documentation build configuration file, created by
 # sphinx-quickstart on Wed Feb 29 02:22:55 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'python-cn-clieht'
+project = u'pycn'
 copyright = u'2012, Daniel Greenfeld'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -91,7 +91,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'nature'
+html_theme = 'pycn'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -99,7 +99,7 @@ html_theme = 'nature'
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
+html_theme_path = ["."]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -183,7 +183,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'python-cn-clieht.tex', u'python-cn-clieht Documentation',
+  ('index', 'pycn.tex', u'pycn Documentation',
    u'Daniel Greenfeld', 'manual'),
 ]
 
@@ -213,7 +213,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'python-cn-clieht', u'python-cn-clieht Documentation',
+    ('index', 'pycn', u'pycn Documentation',
      [u'Daniel Greenfeld'], 1)
 ]
 
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'python-cn-clieht', u'python-cn-clieht Documentation',
-   u'Daniel Greenfeld', 'python-cn-clieht', 'One line description of project.',
+  ('index', 'pycn', u'pycn Documentation',
+   u'Daniel Greenfeld', 'pycn', 'One line description of project.',
    'Miscellaneous'),
 ]
 
