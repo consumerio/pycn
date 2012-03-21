@@ -3,14 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to python-cn-clieht's documentation!
-============================================
+python-cn-client Documentation
+==============================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
+   tutorial
 
 
 Indices and tables
