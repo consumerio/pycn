@@ -23,7 +23,7 @@ class API(object):
     def my_profile(self):
         url = "{0}my-profile/?access_token={1}".format(DOMAIN, self.oauth.access_token)
         r = requests.get(url)
-        return r.content
+        return json.loads(r.content)
         
         
     
