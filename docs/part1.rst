@@ -69,10 +69,10 @@ for future use.
 Troubleshooting
 ---------------
 
-Compare your code with that in `pycn-example <https://github.com/consumernotebook/pycn-example>`.
+Compare your code with that in `pycn-example <https://github.com/consumernotebook/pycn-example>`_.
 The `home` view should correspond to "Display a Connect button," and the `browse` 
 view should correspond to "Get an Access Token."
 
-If you get stuck, find answers or let us know via `support.consumernotebook.com <http://support.consumernotebook.com>`.
+If you get stuck, find answers or let us know via `support.consumernotebook.com <http://support.consumernotebook.com>`_.
 
 Now, let's move on to :ref:`tutorial-part-2`.
