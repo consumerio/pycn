@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 
 """
-requests
-~~~~~~~~
+pycn is a Python library for accessing the Consumer Notebook API.
 
-:copyright: (c) 2012 by Daniel Greenfeld.
+:copyright: (c) 2012 by Daniel Greenfeld and Audrey Roy.
 :license: MIT, see LICENSE for more details.
 
 """
 
-__title__ = 'cn-client'
-__author__ = 'Daniel Greenfeld'
+__title__ = 'pycn'
+__author__ = 'Daniel Greenfeld and Audrey Roy'
 __license__ = 'MIT'
-__copyright__ = 'Copyright 2012 Daniel Greenfeld'
+__copyright__ = 'Copyright 2012, Daniel Greenfeld and Audrey Roy'
 
 VERSION = (0, 1, 0)
 
@@ -24,4 +23,5 @@ def get_version():
 
 __version__ = get_version()
 
+from pycn.oauth import OAuth2Handler, AuthorizationURLError, AccessTokenError
 from functions import *

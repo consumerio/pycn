@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-cn_client.functions
+pycn.functions
 ~~~~~~~~~~~~~~~~~~~
 
 This module provides a basic API interface for Consumer Notebook. The 

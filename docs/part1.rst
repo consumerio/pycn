@@ -4,15 +4,21 @@
 Part 1: Authentication
 ======================
 
-The Consumer Notebook API uses OAuth 2.0 for authentication.  python-cn-client
+The Consumer Notebook API uses OAuth 2.0 for authentication.  pycn
 tries to make this painless for you.
 
 Setup
 -----
 
-In your app, create an OAuthHandler somewhere convenient::
+In your app, create an OAuth2Handler somewhere convenient::
 
-    auth = cnpy.OAuthHandler(consumer_token, consumer_secret, redirect_uri)
+    import pycn
+
+    auth = pycn.OAuth2Handler(
+            client_id='your-client-id',
+            client_secret='your-client-secret',
+            redirect_uri='your-redirect-uri'
+        )
 
 Display a Connect button
 ------------------------
@@ -22,10 +28,10 @@ URL returned by `get_authorization_url()`::
 
     try:
         connect_url = auth.get_authorization_url()
-    except cnpy.AuthorizationURLError:
+    except pycn.AuthorizationURLError:
         print "Error! Failed to get authorization URL."
 
-Your template will contain something like this::
+Your template will need to contain something like this::
 
     <a class="btn" href="{{ connect_url }}">Connect</a> with Consumer Notebook
 
@@ -54,7 +60,7 @@ the Consumer Notebook API, requesting an access token::
     # Use it to get an access token
     try:
         access_token = auth.get_access_token(code)
-    except cnpy.AccessTokenError:
+    except pycn.AccessTokenError:
         print 'Error! Failed to get access token.'
 
 Once you've gotten the access token, save it somewhere in the user's account

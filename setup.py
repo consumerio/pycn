@@ -1,14 +1,14 @@
 import os
 from setuptools import setup, find_packages
  
-import cn_client
+import pycn
  
 LONG_DESCRIPTION = open('README.rst').read()
  
 setup(
-    name='python-cn-client',
-    version=cn_client.__version__,
-    description="The official Python client for the Consumer Notebook API",
+    name='pycn',
+    version=pycn.__version__,
+    description="A Python library for accessing the Consumer Notebook API.",
     long_description=LONG_DESCRIPTION,
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -20,16 +20,15 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    keywords='python,rest,json',
-    author=cn_client.__author__,
+    keywords='consumernotebook,python,rest,json',
+    author=pycn.__author__,
     author_email='pydanny@consumernotebook.com',
-    url='http://github.com/consumernotebook/python-cn-client',
+    url='http://github.com/consumernotebook/pycn',
     license='MIT',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
         'requests==0.10.6',
-        'httplib2==0.7.4',
     ],
     zip_safe=False,
 )
