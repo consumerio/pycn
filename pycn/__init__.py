@@ -24,4 +24,6 @@ def get_version():
 __version__ = get_version()
 
 from pycn.oauth import OAuth2Handler, AuthorizationURLError, AccessTokenError
+from pycn.api import API
 from functions import *
+
