@@ -63,8 +63,9 @@ the Consumer Notebook API, requesting an access token::
     except pycn.AccessTokenError:
         print 'Error! Failed to get access token.'
 
-Once you've gotten the access token, save it somewhere in the user's account
-for future use.
+If your app has user accounts, save the access token somewhere in the user's account
+for future use. If not, remember that you can always call the ``get_access_token()``
+method to get the access token.
 
 Troubleshooting
 ---------------
