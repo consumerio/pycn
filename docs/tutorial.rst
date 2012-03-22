@@ -9,6 +9,8 @@ python-cn-client's features.
 
 We recommend that you work through it from the beginning if you're new.
 
+For a working example of the code from this tutorial, see `pycn-example <https://github.com/consumernotebook/pycn-example>`.
+
 .. toctree::
    :maxdepth: 2
    

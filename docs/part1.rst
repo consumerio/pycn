@@ -54,7 +54,7 @@ with a `code=some-random-code` GET request parameter.
 Your app should take the `code` value and use it to make a server-side call to
 the Consumer Notebook API, requesting an access token::
 
-    # Get the "code" value
+    # Get the "code" value.
     code = self.request.get('code')
 
     # Use it to get an access token
@@ -65,5 +65,14 @@ the Consumer Notebook API, requesting an access token::
 
 Once you've gotten the access token, save it somewhere in the user's account
 for future use.
+
+Troubleshooting
+---------------
+
+Compare your code with that in `pycn-example <https://github.com/consumernotebook/pycn-example>`.
+The `home` view should correspond to "Display a Connect button," and the `browse` 
+view should correspond to "Get an Access Token."
+
+If you get stuck, find answers or let us know via `support.consumernotebook.com <http://support.consumernotebook.com>`.
 
 Now, let's move on to :ref:`tutorial-part-2`.

@@ -25,7 +25,7 @@ class OAuth2Handler(object):
                 self.redirect_uri
             )
 
-    def get_access_token(user, code=None):
+    def get_access_token(self, code=None):
         # First, try the user's existing profile
         if self.access_token:
             return self.access_token
@@ -35,10 +35,10 @@ class OAuth2Handler(object):
         if code:
             url = 'http://consumernotebook.com/oauth2/access_token/'
             params = {
-                'client_id': private.CLIENT_ID,
-                'client_secret': private.CLIENT_SECRET,
+                'client_id': self.client_id,
+                'client_secret': self.client_secret,
                 'grant_type': 'authorization_code',
-                'redirect_uri': private.REDIRECT_URI, 
+                'redirect_uri': self.redirect_uri, 
                 'code': code
             }
 
